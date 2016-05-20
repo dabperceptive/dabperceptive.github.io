@@ -4,7 +4,7 @@ require.config({
         'backbone': {
             //These script dependencies should be loaded before loading
             //backbone.js
-            deps: ['underscore', 'jquery'],
+            deps: ['underscore_scr', 'jquery'],
             //Once loaded, use the global 'Backbone' as the
             //module value.
             exports: 'Backbone'
@@ -18,9 +18,20 @@ require.config({
     },
     paths: {
         "jquery": "/libs/jquery.min",
-        "underscore": "/libs/underscore-min",
+        "underscore_scr": "/libs/underscore-min",
         "backbone": "/libs/backbone-min",
         "handlebars": "/libs/handlebars.min",
         'bootstrap': "/libs/bootstrap.min"
     }
 });
+
+require.onError = function (err) {
+    alert(err);
+    return;
+    if (err.requireType === 'timeout') {
+        // tell user
+        alert("error: " + err);
+    } else {
+        throw err;
+    }
+};
