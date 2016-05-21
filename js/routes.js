@@ -1,4 +1,4 @@
-define(['backbone', 'viewmanager'], function (bb, vm) {
+define(['backbone', 'viewmanager', 'views/aboutView'], function (bb, vm, av) {
     //more details: http://backbonejs.org/#Router
     return {
         init: function () {
@@ -32,7 +32,11 @@ define(['backbone', 'viewmanager'], function (bb, vm) {
                 },
 
                 pullRequest: function () {
+
                     alert("pull request");
+                    abozview = new av();
+                    abozview.render();
+                    //vm.showView(abozview)
                 },
                 search: function (query, page) {
                     alert("search")
