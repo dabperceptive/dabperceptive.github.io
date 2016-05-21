@@ -1,4 +1,4 @@
-define(['backbone'], function () {
+define(['backbone', 'viewmanager'], function (bb, vm) {
     //more details: http://backbonejs.org/#Router
     return {
         init: function () {
@@ -22,7 +22,13 @@ define(['backbone'], function () {
                 },
 
                 about: function () {
-                    alert("about")
+                    vm.showView({
+                        cid: 'about',
+                        name: 'about',
+                        render: function () {
+                            alert("about");
+                        }
+                    })
                 },
 
                 pullRequest: function () {
